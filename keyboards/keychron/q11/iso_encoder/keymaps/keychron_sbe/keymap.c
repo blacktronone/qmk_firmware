@@ -31,8 +31,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [SYMBOL] = LAYOUT_92_iso(
         RGB_TOG,  _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,     KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,     KC_F12,   _______,  _______,  RGB_TOG,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,            _______,
-        _______,  RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,   _______,  _______,  RALT(KC_EQL),  _______,  _______,  _______,    _______,                      _______,
-        _______,  _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,   _______,  _______,  RALT(KC_NUBS), RSFT(KC_7),  _______,  _______,    _______,  _______,            _______,
+        _______,  RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,   _______,  RALT(KC_4), RALT(KC_EQL), LSFT(KC_EQL),  _______,  _______,    _______,                      _______,
+        _______,  _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,   _______,  RSFT(KC_7), RALT(KC_NUBS) ,_______, _______,  _______,    _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  NK_TOGG,  _______,  _______,  _______,  _______,              _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,                       _______,            _______,  _______,    _______,  _______,  _______,  _______),
 
@@ -67,33 +67,36 @@ const uint16_t PROGMEM encoder_map[][NUM_DIRECTIONS][NUM_DIRECTIONS] = {
 void housekeeping_task_user(void) {
     housekeeping_task_keychron();
 }
-layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-    case BASE:
-        rgb_matrix_set_color_all(0,0,0);
-        rgb_matrix_set_color(7,0,255,255);
-        break;
-    case SYMBOL:
-        rgb_matrix_set_color_all(0,0,0);
-        rgb_matrix_set_color(15,0,255,255);
-        break;
-    case GAMING:
-        rgb_matrix_set_color_all(0,0,0);
-        rgb_matrix_set_color(22,0,255,255);
-        rgb_matrix_set_color(18,0,255,255);
-        rgb_matrix_set_color(24,0,255,255);
-        rgb_matrix_set_color(25,0,255,255);
-        rgb_matrix_set_color(26,0,255,255);
-        break;
-    case BACKSPACE:
-        rgb_matrix_set_color_all(0,0,0);
-        rgb_matrix_set_color(29,0,255,255);
-        rgb_matrix_set_color(50,0,255,255);
-        break;
-    default: //  for any other layers, or the default layer
-        break;
-    }
-  return state;
+bool rgb_matrix_indicators_user(void) {
+	    switch(get_highest_layer(layer_state|default_layer_state)) {
+		    case BASE:
+                rgb_matrix_set_color_all(0,0,0);
+                rgb_matrix_set_color(7,0,255,255);
+                break;
+            case SYMBOL:
+                rgb_matrix_set_color_all(0,0,0);
+                rgb_matrix_set_color(15,0,255,255);
+                break;
+            case GAMING:
+                rgb_matrix_set_color_all(0,0,0);
+                rgb_matrix_set_color(22,0,255,255);
+                rgb_matrix_set_color(18,0,255,255);
+                rgb_matrix_set_color(24,0,255,255);
+                rgb_matrix_set_color(25,0,255,255);
+                rgb_matrix_set_color(26,0,255,255);
+                break;
+            case BACKSPACE:
+                rgb_matrix_set_color_all(0,0,0);
+                rgb_matrix_set_color_all(0,255,255);
+                rgb_matrix_set_color(29,0,255,255);
+                rgb_matrix_set_color(22,0,0,0);
+                rgb_matrix_set_color(15,0,0,0);
+                rgb_matrix_set_color(7,0,0,0);
+                break;
+            default: //  for any other layers, or the default layer
+                break;
+        }
+  return false;
 }
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_record_keychron(keycode, record)) {
