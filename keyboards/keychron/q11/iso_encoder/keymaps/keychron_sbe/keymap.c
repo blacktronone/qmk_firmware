@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_MUTE,  KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,     KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,     KC_F12,   KC_INS,   KC_DEL,   KC_MUTE,
         TO(BASE),  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,    KC_EQL,   C(KC_H),            KC_PGUP,
         TO(SYMBOL),  KC_TAB,   KC_Q,     KC_W,   LT(GAMING, KC_E),     KC_R,     KC_T,      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,    KC_RBRC,                      KC_PGDN,
-        TO(GAMING),  LT(BACKSPACE,KC_BSPC), LT(BACKSPACE, KC_A), MT(MOD_LCTL,KC_S), MT(MOD_LALT,KC_D), MT(MOD_LSFT,KC_F), KC_G, KC_H, MT(MOD_LSFT,KC_J), MT(MOD_LALT,KC_K), MT(MOD_LCTL,KC_L), KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT, KC_HOME,
+        TO(GAMING),  KC_TAB, LT(BACKSPACE, KC_A), MT(MOD_LCTL,KC_S), MT(MOD_LALT,KC_D), MT(MOD_LSFT,KC_F), LT(GAMING,KC_G), KC_H, MT(MOD_LSFT,KC_J), MT(MOD_LALT,KC_K), MT(MOD_LCTL,KC_L), KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT, KC_HOME,
         TO(BACKSPACE),  KC_LSFT,  KC_NUBS,  KC_Z,     KC_X,     KC_C,     LT(SYMBOL, KC_V),      KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   _______,  _______,  KC_UP,
         _______,  KC_LCTL,  KC_LWIN,  KC_MS_BTN1,  LT(SYMBOL, KC_ESC),         LT(GAMING, KC_ENT),              MT(MOD_LSFT,KC_SPC), KC_RALT,  MO(BACKSPACE), KC_RCTL,  KC_LEFT,  KC_DOWN,  KC_RGHT),
 
@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RGB_TOG,  _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,     KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,     KC_F12,   _______,  _______,  RGB_TOG,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,            _______,
         _______,  RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,   _______,  RALT(KC_4), RALT(KC_EQL), LSFT(KC_EQL),  _______,  _______,    _______,                      _______,
-        _______,  _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,   KC_SLSH,  LSFT(KC_SLSH), RSFT(KC_7) ,RALT(KC_NUBS), _______,  _______,    _______,  _______,            _______,
+        _______,  _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,   LSFT(KC_SLSH),  KC_SLSH, RSFT(KC_7) ,RALT(KC_NUBS), _______,  _______,    _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______,  _______,  _______,              _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,                       _______,            _______,  _______,    _______,  _______,  _______,  _______),
 
